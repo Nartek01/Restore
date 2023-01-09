@@ -1,0 +1,5 @@
+﻿.vscode
+API/obj
+API/bin
+*.zip
+courseAssets
