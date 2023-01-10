@@ -1,5 +1,6 @@
-﻿.vscode
+.vscode
 API/obj
 API/bin
 *.zip
 courseAssets
+store.db-*
