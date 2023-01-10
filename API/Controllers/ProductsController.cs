@@ -22,5 +22,11 @@ namespace API.Controllers
 
             return Ok(products);
         }
+
+        [HttpGet("{id}")]
+        public ActionResult<Product> GetProduct(int id)
+        {
+            return context.Products.Find(id);
+        }
     }
 }
