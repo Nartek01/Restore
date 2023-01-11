@@ -1,3 +1,4 @@
+/** Importera in dom biblioteken som behövs*/
 using System;
 using API.Data;
 using Microsoft.AspNetCore.Hosting;
@@ -8,17 +9,17 @@ using Microsoft.Extensions.Logging;
 
 namespace API
 {
-    public class Program // Every C# program starts with a "Program" class.
+    public class Program // All C# Program har Main class 
     {
-        public static void Main(string[] args) // Ever C# program have Main method
+        public static void Main(string[] args)
         {
-            /**
-            All webapi must be hosted on a server either on a localhost or on a host somwhere else.
-            .Net includes a server we can use to run our API, the server is called "Kestral".
+            /** 
+            * Webapi fungerar som en middleware för att förmedla datan från .Net till React 
+            * Denna princip appliceras också i headless utveckling fast då är det med GraphQL eller REST istället
             */
-            var host = CreateHostBuilder(args).Build(); // Creating Kestral server with some default settings.Build it. Run it. In that order.
+            var host = CreateHostBuilder(args).Build(); // Skapa en kestrel server med några standard argumenter, bygg och kör.
 
-            /** Populate the database from DbInitializer.cs*/
+            /** Populera databasen med tabeller från DbInitializer.cs*/
             using var scope = host.Services.CreateScope();
             var context = scope.ServiceProvider.GetRequiredService<StoreContext>();
             var logger = scope.ServiceProvider.GetRequiredService<ILogger<Program>>();
