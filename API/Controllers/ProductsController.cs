@@ -15,7 +15,7 @@ namespace API.Controllers
         {
             this.context = context;
         }
-        [HttpGet]
+        [HttpGet] // Returnerar en lista med produkter
         public ActionResult<List<Product>> GetProducts()
         {
             var products = context.Products.ToList();
