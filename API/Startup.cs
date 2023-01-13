@@ -13,15 +13,16 @@ namespace API
     {
         public Startup(IConfiguration configuration)
         {
-            /**
-            This is referred as a constructor.
+            /** 
+            * Den första metoden som körs när du instaniera klassen kallasf för constructor 
+            * I php använder man syntaxen __construct
             */
             Configuration = configuration;
         }
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
+        // Denna metod instansieras av "Runtime", använd den när du ska lägga till "services" till containern
         public void ConfigureServices(IServiceCollection services)
         {
 
@@ -37,7 +38,7 @@ namespace API
             });
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        // Denna metod instansieras på runtime, Använd denna metod till för att konfigurera HTTP anrop.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())

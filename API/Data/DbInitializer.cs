@@ -1,16 +1,17 @@
+/** Importera bilbiotek */
 using System.Collections.Generic;
 using System.Linq;
 using API.Entities;
 
 namespace API.Data
 {
-    public static class DbInitializer
+    public static class DbInitializer // Denna körs på Program.cs
     {
         public static void Initialize(StoreContext context)
         {
-            if (context.Products.Any()) return; // If DB is populated or not empty return nothing and exit.
+            if (context.Products.Any()) return; // Om databasen är inte tomt, fortsätta exekvera kod 
 
-            /** Addding Products Manually */
+            /** Annars lägg till produkter */
             var products = new List<Product>{
                 new Product
                 {
@@ -210,7 +211,7 @@ namespace API.Data
                 },
             };
 
-            /** Loops through the products list and prepare them to be created in the store.db*/
+            /** Iterera genom product superset och pusha det till databasen*/
             foreach (var product in products)
             {
                 context.Products.Add(product);
