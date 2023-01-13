@@ -4,3 +4,4 @@ API/bin
 *.zip
 courseAssets
 store.db-*
+.DS_Store
