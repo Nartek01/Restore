@@ -37,7 +37,7 @@ namespace API
                 scope.Dispose(); // Memory management
             }
 
-            host.Run();
+            host.Run(); // Run the program
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) => // CreateHostBuilder method is set up here. After the function call, thanks to hoisting.
