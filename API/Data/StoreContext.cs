@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace API.Data
 {
-    public class StoreContext : DbContext
+    public class StoreContext : DbContext /* Använder Entity Framework */
     {
         public StoreContext(DbContextOptions options) : base(options)
         {
