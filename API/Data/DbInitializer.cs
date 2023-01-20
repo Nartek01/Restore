@@ -12,7 +12,8 @@ namespace API.Data
             if (context.Products.Any()) return; // Om databasen är inte tomt, fortsätta exekvera kod 
 
             /** Annars lägg till produkter */
-            var products = new List<Product>{
+            var products = new List<Product>
+            {
                 new Product
                 {
                     Name = "Angular Speedster Board 2000",
@@ -217,7 +218,7 @@ namespace API.Data
                 context.Products.Add(product);
             }
 
-            context.SaveChanges(); // Save the changes
+            context.SaveChanges(); // Verkställ ändringarna och spara det i databasen.
         }
     }
 }
