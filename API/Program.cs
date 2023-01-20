@@ -20,7 +20,7 @@ namespace API
             var host = CreateHostBuilder(args).Build(); // Skapa en kestrel server med några standard argumenter, bygg och kör.
 
             /** Populera databasen med tabeller från DbInitializer.cs*/
-            using var scope = host.Services.CreateScope();
+            var scope = host.Services.CreateScope();
             var context = scope.ServiceProvider.GetRequiredService<StoreContext>();
             var logger = scope.ServiceProvider.GetRequiredService<ILogger<Program>>();
             try
@@ -31,6 +31,10 @@ namespace API
             catch (Exception e)
             {
                 logger.LogError(e, "Problem migrating data");
+            }
+            finally
+            {
+                scope.Dispose(); // Memory management
             }
 
             host.Run();
