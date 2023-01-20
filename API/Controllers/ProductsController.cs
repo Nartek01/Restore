@@ -25,8 +25,8 @@ namespace API.Controllers
             */
             this.context = context; // För att senare lägga det till våran LOKALA context konstanten.
         }
-        [HttpGet] // Returnerar en lista med produkter
-        public ActionResult<List<Product>> GetProducts() 
+        [HttpGet] // Ange vilken HTTP metod som skall användas
+        public ActionResult<List<Product>> GetProducts() // Returnerar en lista med produkter
         {
             var products = context.Products.ToList(); // Hämta data från "Products" DB tabellen, lägg det senare inuti inuti variabeln "products".
 
