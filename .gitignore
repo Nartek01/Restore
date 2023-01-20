@@ -5,3 +5,4 @@ API/bin
 courseAssets
 store.db-*
 .DS_Store
+**/Migrations/*
