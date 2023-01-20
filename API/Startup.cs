@@ -14,7 +14,7 @@ namespace API
         public Startup(IConfiguration configuration)
         {
             /** 
-            * Den första metoden som körs när du instaniera klassen kallasf för constructor 
+            * Den första metoden som körs när du instaniera klassen, kallas för constructor 
             * I php använder man syntaxen __construct
             */
             Configuration = configuration;
