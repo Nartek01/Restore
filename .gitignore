@@ -6,3 +6,4 @@ courseAssets
 store.db-*
 .DS_Store
 **/Migrations/*
+**/*.db
