@@ -5,7 +5,7 @@ namespace API.Data
 {
     public class StoreContext : DbContext /* Använder Entity Framework */
     {
-        public StoreContext(DbContextOptions options) : base(options)
+        public StoreContext(DbContextOptions options) : base(options) // Skicka med options här annars lämna tomt
         {
         }
 
