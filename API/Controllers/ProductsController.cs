@@ -1,8 +1,9 @@
 using System.Collections.Generic;
-using System.Linq;
+using System.Threading.Tasks;
 using API.Data;
 using API.Entities;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
@@ -26,17 +27,21 @@ namespace API.Controllers
             this.context = context; // För att senare lägga det till våran LOKALA context konstanten.
         }
         [HttpGet] // Ange vilken HTTP metod som skall användas
-        public ActionResult<List<Product>> GetProducts() // Returnerar en lista med produkter
+        public async Task<ActionResult<List<Product>>> GetProducts() // Returnerar en lista med produkter
         {
-            var products = context.Products.ToList(); // Hämta data från "Products" DB tabellen, lägg det senare inuti inuti variabeln "products".
+            var products = await context.Products.ToListAsync(); // Hämta data från "Products" DB tabellen, lägg det senare inuti inuti variabeln "products".
 
             return Ok(products); // Returnera den populerade "products" listan med en 200 OK
         }
 
         [HttpGet("{id}")] // API Rutt
-        public ActionResult<Product> GetProduct(int id) // Skapa en kontroller fält som vill ha ett products id
+        /** 
+        async Task<> Gör så att koden körs asynkront
+        */
+        public async Task<ActionResult<Product>> GetProduct(int id) // Skapa en kontroller fält som vill ha ett products id
         {
-            return context.Products.Find(id);// Passa med id paramtern till Find metoden och returnera det.
+            /** När async är färdig så returnera den promise.  */
+            return await context.Products.FindAsync(id);// Passa med id paramtern till Find metoden och returnera det. 
         }
     }
 }
