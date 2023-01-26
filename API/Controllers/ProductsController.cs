@@ -17,19 +17,22 @@ namespace API.Controllers
         Förläng den nuvarande klassen med StoreContext klassen,
         annars kommer vi inte åt "Products tabellen".
         */
-        private readonly StoreContext context;
+        private readonly StoreContext _context;
+
         public ProductsController(StoreContext context)
         {
+
             /**
-            Först förlänger vi ProductsController klassen med StoreConetx.cs/klassen.
+            Först förlänger vi ProductsController klassen med StoreContext.cs/klassen. 
             Sen skicka vi med det som en paramter i ProductsController metoden/funktionen...
             */
-            this.context = context; // För att senare lägga det till våran LOKALA context konstanten.
+            _context = context; // För att senare lägga det till våran LOKALA context konstanten.
+
         }
         [HttpGet] // Ange vilken HTTP metod som skall användas
         public async Task<ActionResult<List<Product>>> GetProducts() // Returnerar en lista med produkter
         {
-            var products = await context.Products.ToListAsync(); // Hämta data från "Products" DB tabellen, lägg det senare inuti inuti variabeln "products".
+            var products = await _context.Products.ToListAsync(); // Hämta data från "Products" DB tabellen, lägg det senare inuti inuti variabeln "products".
 
             return Ok(products); // Returnera den populerade "products" listan med en 200 OK
         }
@@ -41,7 +44,7 @@ namespace API.Controllers
         public async Task<ActionResult<Product>> GetProduct(int id) // Skapa en kontroller fält som vill ha ett products id
         {
             /** När async är färdig så returnera den promise.  */
-            return await context.Products.FindAsync(id);// Passa med id paramtern till Find metoden och returnera det. 
+            return await _context.Products.FindAsync(id);// Passa med id paramtern till Find metoden och returnera det. 
         }
     }
 }
