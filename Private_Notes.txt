@@ -1,3 +1,15 @@
 URL: https://www.udemy.com/course/learn-to-build-an-e-commerce-store-with-dotnet-react-redux/learn/lecture/28964786#overview
 Current chapter,ep and timestamp
-API Basics, 17, 7:36
+API Basics, 19, 2:31
+Sammanfattning:
+Vad är .Net?
+    .Net är en bibliotek eller en samling av funktioner,variabled, properties och methods. Som en utvecklare kan nyttja för att skapa webb applikationer, webbsidor, api serverar, programvara m.m
+Vad är en API?
+    Application Programming Interface (API) är ett sätt att förmedla data mellan två stycken platformar som annars inte kan förstår varandra. Likt hur fil formatet JSON fungerar för att förmedla subset och superset till andra applikationer. Faktumet är att API strukturen är formatterad i JSON.
+Använda dotnet-CLIn
+    Vi fick även lära oss att skapa ett API Projekt, koppla databasen med våran kodbas och köra våran projekt med dotnet-CLIn
+Vad projekten innehåller
+    Vi gick igenom hur "program" klassen fungerar, hur applikationen starts upp och vilka metoder att leta efter. Även modifierat till våran preferens.
+Skapade en enkel Web API
+Använde oss utav "Entity Framework"
+    Vi applicerade Entity Framework biblioteken för att skapa våran databas baserad på en assosiativ-array, som innhöll produktens namn, beskrivning, pris, bildURL, märke, typ och antal. Vi kollade på hur man migrera datan från arrayen till databasen med en SQL "översättare". Vi har en databas som är populerad av våran produkter.
