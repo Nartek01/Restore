@@ -9,7 +9,7 @@ using Microsoft.Extensions.Logging;
 
 namespace API
 {
-    public class Program // All C# Program har Main class 
+    public class Program // Alla C# Program har Main class 
     {
         public static void Main(string[] args)
         {
