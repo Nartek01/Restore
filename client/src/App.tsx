@@ -7,10 +7,24 @@ function App() {
 ]);
 
 useEffect(() => {
-  fetch('http://localhost:5000/api/products')
+  fetch('http://localhost:5000/api/products') // Begär datan från våran .Net API / Swagger
   .then(response => response.json())
-  .then((responseJSON => setProducts(data)))
+  /**
+   * Skapar en okänd funktion med response som parameter, 
+   * response parametern innehåller det vi får från Swagger. Koppling sker med .then() funktionen som säger att koden ska fortsätta efter fetch();
+   * Vi gör API responsen till JSON objekt.
+   */
+  .then((responseJSON => setProducts(responseJSON)))
+  /**
+   * Vi koppla på ytterliggare steg med then(); funktionen, responseJSON innehåller föregående JSON objekt.
+   * Inuti den okända funktionen så anropar vi react hooksen "useState" och sätter products med setProducts med responseJSON som argument.
+   */
 }, []);
+/**
+ * [] hakparentesen betyder att denna useEffect får endast köra engång och inget mer efter App komponenten är mountad.
+ * Om vi tarbort hakparentesen då kommer useEffect -> fetch att köras varje gång våran komponent behöver laddas om eller om våran products state ändras.
+ * Detta kommer att onödigt belasta API och klienten.
+ */
 
 function addProducts () {
   //setProducts([...products, {name: "product3", price: 300.00}]);
