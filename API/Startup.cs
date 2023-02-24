@@ -36,6 +36,9 @@ namespace API
             {
                 opt.UseSqlite(Configuration.GetConnectionString("DefaultConnection"));
             });
+
+            // Lägger till CORS
+            services.AddCors();
         }
 
         // Denna metod instansieras på runtime, Använd denna metod till för att konfigurera HTTP anrop.
@@ -51,6 +54,10 @@ namespace API
             //app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors(opt => {
+                opt.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:3000");
+            });
 
             app.UseAuthorization();
 
